@@ -3,7 +3,6 @@ var Ingredient = require('../models/ingredientschema')
 
 
 exports.new = function(req, res) {
-	console.log("hey thar");
 	res.render('ingredientNew',{});
 };
 
@@ -13,7 +12,6 @@ exports.create = function(req, res) {
 		if (err) {
 			console.log("Problem saving ingredient", err);
 		} else {
-			console.log(ingr.name, ingr.cost);
 			res.send("Your new ingredient: " + ingr.name + ". Cost: " + ingr.cost + ".");
 		}
 	})
