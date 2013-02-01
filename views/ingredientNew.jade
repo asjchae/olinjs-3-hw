@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  p Enter in an ingredient
+  form(action='/ingredient/create', method='post', id="newform")
+    | New ingredient:
+    input(name='ingredient', id="newingredient")
+    | Cost:
+    input(name='cost', id="ingredientcost")
+    button('type='submit')
+      | Submit
