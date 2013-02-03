@@ -1,0 +1,14 @@
+extend layout
+
+block content
+
+  form(action="/order/delete", method='post', name='deleteorder', id='delorder')
+    | Pending Orders:
+    each order, i in orderlist
+      p Order
+      form(class='deleteOrder', method='post', action='/order/delete')
+        input(type="hidden", value="#{order._id}", name="id")
+        button('type='submit', id='deletebutton')
+          | Delete
+
+

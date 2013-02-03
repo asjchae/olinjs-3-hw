@@ -9,7 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , ingredient = require("./routes/ingredient")
-  , order = require("./routes/order");
+  , order = require("./routes/order")
+  , mongoose = require("mongoose");
 
 var app = express();
 
@@ -35,6 +36,10 @@ app.get('/ingredient/new', ingredient.new);
 app.post('/ingredient/create', ingredient.create);
 
 app.get('/order/new', order.new);
+app.post('/order/create', order.create);
+app.get('/orders', order.orders);
+app.post('/order/delete', order.delete);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
