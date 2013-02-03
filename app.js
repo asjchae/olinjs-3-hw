@@ -13,7 +13,8 @@ var express = require('express')
   , mongoose = require("mongoose");
 
 var app = express();
-mongoose.connect('mongodb://localhost/burgers');
+mongoose.connect(process.env.MONGOLAB_URI || 'localhost');
+//mongoose.connect('mongodb://localhost/burgers');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 5000);
