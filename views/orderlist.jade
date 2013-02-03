@@ -1,5 +1,8 @@
 extend layout
 
+block scripts
+  script(src='/javascripts/orders.js')
+
 block content
 
   form(action="/order/delete", method='post', name='deleteorder', id="delorder")
