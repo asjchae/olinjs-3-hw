@@ -1,11 +1,11 @@
 $(function () {
-  $('.newOrder').on('submit', function () {
-    $.post("/order/create", $(this).serialize());
+  $('#neworder').on('submit', function () {
+    $.post("/order/create", $('#neworder').serialize());
     return false;
   })
 
-  $('.deleteOrder').on('submit', function () {
-    $.post("/order/delete", $(this).serialize());
+  $('#delorder').on('submit', function () {
+    $.post("/order/delete", $(#delorder).serialize());
     $(this).remove();
     return false;
   })

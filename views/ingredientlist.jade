@@ -2,7 +2,7 @@ extend layout
 
 block content
 
-  form(class="newOrder", action="/order/create", method='post', name='neworder', id='neworder')
+  form(class="newOrder", action="/order/create", method='post', name='neworder', id="neworder")
     | Customer Name:
     input(name='Customer', id='customerName')
     br
@@ -14,5 +14,5 @@ block content
         | #{ingredient.name}
     br
     br
-    button('type='submit', id='submitbutton')
+    button('type='submit', id="submitbutton")
       | Submit
