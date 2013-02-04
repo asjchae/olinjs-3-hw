@@ -7,24 +7,24 @@ exports.new = function(req, res) {
 		if (err) {
 			return console.log("error", err);
 		}
-		res.render('ingredientlist', {ingredientlist: response})
+		res.render('ingredientlist', {ingredientlist: response});
 	});
 };
 
 exports.create = function(req, res) {
-	var newOrder = new Order({customer: req.body.customerName, ingredients: req.body.ingredients});
-
-	// save the new order to the db
+	var newOrder = new Order({customer: req.body.customer, ingredients: req.body.ingredients});
+	console.log(req.body.ingredients);
 	newOrder.save(function (err){
-		if (err)
+		if (err) {
 			return console.log("Couldn't save your new order");
+		}
 		// redirect to list of orders
 		res.redirect('/order/new');
 	});
 }
 
 exports.orders = function(req, res) {
-	var orderlist = Order.find({}).populate('customer').populate('ingredients').exec(function (err, response) {
+	var orderlist = Order.find({}).populate('ingredients').exec(function (err, response) {
 		if (err) {
 			return console.log("error", err);
 		}
@@ -33,7 +33,7 @@ exports.orders = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-	var orders = Order.findOneAndRemove({_id: req.body.id}).exec(function (err, response) {
+	var orders = Order.findOneAndRemove({value: req.body.id}).exec(function (err, response) {
 		if (err) {
 			return console.log("error", err);
 		}

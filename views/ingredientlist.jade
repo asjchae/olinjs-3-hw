@@ -2,15 +2,18 @@ extend layout
 
 block content
 
-  form(action='/order/create', method='post', id="neworder")
+  form(action='/order/create', method='post', id='neworder')
     | Customer Name:
     input(name='Customer', id='customerName')
     br
     br
     | Ingredient List:
+    br
+    br
     each ingredient, i in ingredientlist
-      input('type='checkbox', value='#{ingredient._id}', id='ingredients')
-        | #{ingredient.name}
+      | #{ingredient.name}
+      input('type='checkbox', value='#{ingredient._id}', name='ingredients')
+      br
     br
     br
     button

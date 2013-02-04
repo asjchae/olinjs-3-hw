@@ -4,13 +4,12 @@ extend layout
 
 block content
 
-  form(action="/order/delete", method='post', name='deleteorder', id="delorder")
+  div
     | Pending Orders:
     each order, i in orderlist
-      p Order
-      form(class='deleteOrder', method='post', action='/order/delete')
-        input(type="hidden", value="#{order._id}", name="id")
-        button
-          | Delete
-
-
+      form(class='deletething')
+        each ingr, j in order.ingredients
+          p #{ingr.name}
+        input(type="hidden", value="#{order._id}", name="orderid")
+        button('type='submit')
+          | Completed
